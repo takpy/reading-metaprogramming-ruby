@@ -1,4 +1,32 @@
 class TryOut
+  def initialize(first_name, middle_name="", last_name)
+    @first_name = first_name
+    @middle_name = middle_name
+    @last_name = last_name
+  end
+
+  def full_name
+    return "#{@first_name} #{@last_name}" if @middle_name == ""
+
+    "#{@first_name} #{@middle_name} #{@last_name}"
+  end
+
+  def first_name=(first_name)
+    @first_name = first_name
+  end
+
+  def upcase_full_name
+    full_name.upcase
+  end
+
+  def upcase_full_name!
+    @first_name.upcase!
+    @middle_name.upcase!
+    @last_name.upcase!
+
+    upcase_full_name
+  end
+
   # このクラスの仕様
   # コンストラクタは、2つまたは3つの引数を受け付ける。引数はそれぞれ、ファーストネーム、ミドルネーム、ラストネームの順で、ミドルネームは省略が可能。
   # full_nameメソッドを持つ。これは、ファーストネーム、ミドルネーム、ラストネームを半角スペース1つで結合した文字列を返す。ただし、ミドルネームが省略されている場合に、ファーストネームとラストネームの間には1つのスペースしか置かない
